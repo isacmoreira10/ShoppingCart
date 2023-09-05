@@ -1,7 +1,7 @@
 
 import { AllContent, DivCoffesConteiner, TitlePage } from './styles'
 import Intro from '../../images/Intro.png'
-import { CoffesCard } from '../../Coffes'
+import { CoffesCard } from '../../components/Coffes'
 import Americano from '../../images/Americano.png'
 import Árabe from '../../images/Árabe.png'
 import Cubano from '../../images/Cubano.png'
@@ -153,28 +153,28 @@ const coffes: CoffesProps[] = [
         price: 9,
         amountCoffe: 0,
         id: 14,
-    },
-]
+    }]
+
 
 export function Menu() {
-
-
     return (
         <AllContent>
             <img src={Intro} />
             <TitlePage>Nossos cafés</TitlePage>
             <DivCoffesConteiner>
                 {coffes.map(coffe => {
-                    return (<CoffesCard
-                        coffeImage={coffe.coffeImage}
-                        title={coffe.title}
-                        name={coffe.name}
-                        description={coffe.description}
-                        price={coffe.price}
-                        amountCoffe={coffe.amountCoffe}
-                        id={coffe.id}
-                        key={coffe.id}
-                    ></CoffesCard>)
+                    return (
+                        <CoffesCard
+                            coffeImage={coffe.coffeImage}
+                            title={coffe.title}
+                            name={coffe.name}
+                            description={coffe.description}
+                            price={coffe.price}
+                            amountCoffe={coffe.amountCoffe}
+                            id={coffe.id}
+                            key={coffe.id}
+                        ></CoffesCard>
+                    )
                 })}
             </DivCoffesConteiner>
         </AllContent>

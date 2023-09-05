@@ -37,11 +37,17 @@ import {
 }
     from "./styles";
 import { MapPin, CurrencyDollar, CreditCard, Money, Bank, Minus, Plus, Trash } from 'phosphor-react'
-import Americano from '../../images/Americano.png'
+
 import { NavLink } from 'react-router-dom'
+import { CoffeContext } from '../../components/Coffes'
+import { useContext } from "react";
 
 
 export function FinalizeCompare() {
+    const { newCoffe } = useContext(CoffeContext)
+
+
+    console.log(newCoffe)
     return (
         <ContainerDiv>
             <TitleRequest>Complete seu pedido</TitleRequest>
@@ -89,13 +95,13 @@ export function FinalizeCompare() {
             <TitleAmountCoffes>Cafés selecionados </TitleAmountCoffes>
             <AmountCoffesContainer>
                 <ImageTitlePrice>
-                    <img src={Americano} ></img>
+                    {/* <img src={newCoffe.coffeImage} ></img> */}
                     <CoffeCardAmount>
-                        <CoffeTitle> Expresso tradicional</CoffeTitle>
+                        <CoffeTitle>  {newCoffe.title}</CoffeTitle>
                         <div className="pipipipi">
                             <CoffePrice>
                                 <Minus size={14} className='iconAmount'></Minus>
-                                <a>1</a>
+                                <a>{newCoffe.amountCoffe}</a>
                                 <Plus size={14} className='iconAmount'></Plus>
                             </CoffePrice>
                             <RemoveButton>
@@ -104,7 +110,7 @@ export function FinalizeCompare() {
                             </RemoveButton>
                         </div>
                     </CoffeCardAmount>
-                    <span>R$ 9,90</span>
+                    <span>R$ {newCoffe.price}</span>
                 </ImageTitlePrice>
                 <hr></hr>
                 <TotalAmount>
